@@ -10,7 +10,9 @@ class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   execute({ email, name }: IRequest): User {
-    // Complete aqui
+    import { response } from "express";
+    import { user } from "../../model/User";
+    import { IUsersRepository } from "../../repositories/IUsersRepository";
   }
 }
 

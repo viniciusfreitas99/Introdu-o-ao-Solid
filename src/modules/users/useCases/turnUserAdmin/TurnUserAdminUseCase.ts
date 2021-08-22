@@ -10,6 +10,15 @@ class TurnUserAdminUseCase {
 
   execute({ user_id }: IRequest): User {
     // Complete aqui
+    const userexist = this.usersRepository.findById(user_id);
+
+    if(!userexist) {
+      throw new error("user not exists!")  
+    }
+
+    cosnt user = this.usersRepository.turnAdmin(userexist);
+
+    return User;
   }
 }
 
