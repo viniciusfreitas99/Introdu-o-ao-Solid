@@ -10,28 +10,28 @@ describe("ListAllUsersUseCase", () => {
 
   beforeAll(() => {
     usersRepository = UsersRepository.getInstance();
-    listAllUsersUseCase = new ListAllUsersUseCase(usersRepository);
+    listAllUsersUseCase = new ListAllUsersUseCase(UsersRepository);
   });
 
   it("should be able to list all users", () => {
-    const user1 = usersRepository.create({
+    const user1 = UsersRepository.create({
       name: "Danilo Vieira",
       email: "danilo@rocketseat.com",
     });
 
-    const user2 = usersRepository.create({
+    const user2 = UsersRepository.create({
       name: "Vinicius Fraga",
       email: "vinifraga@rocketseat.com",
     });
 
     userId = user2.id;
 
-    const user3 = usersRepository.create({
+    const user3 = UsersRepository.create({
       name: "Joseph Oliveira",
       email: "dogim@rocketseat.com",
     });
 
-    usersRepository.turnAdmin(user1);
+    UsersRepository.turnAdmin(user1);
 
     const users = listAllUsersUseCase.execute({ user_id: user1.id });
 
